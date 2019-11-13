@@ -35,7 +35,6 @@ myTasker.add((Taskable*)& bigknob)
   bigknob.change = 0;
 #endif
 
-extern EncoderTask *Encoders[3];
 void encoderChange(void) ; // one ISR for all encoders
 
 class EncoderTask : protected Taskable {
@@ -76,6 +75,8 @@ class EncoderTask : protected Taskable {
       Taskable::setup(ms);
     }
 } ;
+
+extern EncoderTask *Encoders[3];
 
 // this is the pin change interrupt service routine
 void encoderChange(void)
